@@ -4,8 +4,8 @@
         <nav class="flex justify-self-end items-center w-full h-16 justify-end">
             <ul class="flex flex-row content-center w-4/6 justify-evenly text-xl text-red">
             <li class="a-links"> <%= link_to "Home", root_path, class: "text-black" %></li>
-            <li> <%= link_to "Create New Task", new_category_path, class:"text-black" %></li>
-            <li> <%= link_to "My Task", categories_path %></li>
+            <li> <%= link_to "Categories", categories_path, class:"text-black" %></li>
+            <li> <%= link_to "My Task", tasks_path %></li>
             <li class="w-3/6"> 
             
                 <% if account_signed_in? %>
