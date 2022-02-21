@@ -2,15 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
   .btn-primary {
     @apply py-2 px-4 bg-blue-200;
   }
 }
 
-*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.a-links{
+  @apply text-white text-2xl;
+}
+
+.input{
+  @apply w-full border-t-0 border-l-0 border-r-0 border-b-4 border-[#78533d] bg-transparent;
+}
+
+.form{
+  @apply container mx-auto mt-28  w-4/12 h-max flex flex-col p-10 rounded-lg text-lg bg-white relative text-center;
+}
+
+.notices{
+  @apply absolute top-20 left-1/2 -translate-x-1/2 text-center border border-black rounded-lg w-3/12 h-max p-4 text-xl;
+}
+
+.edit-form{
+  @apply container mx-auto mt-0 border bg-white drop-shadow-2xl w-3/12 h-max flex flex-col p-10 rounded-lg text-lg;
+}
+
+.links{
+  @apply text-sm text-center;
+}
+
+.btn{
+  @apply cursor-pointer w-3/12 text-xl;
+}
+.label{
+  @apply text-2xl;
+}
+
