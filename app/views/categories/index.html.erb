@@ -5,7 +5,9 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Categories</h1>
-    <%= link_to 'Category', new_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to new_category_path do %>
+      <i class="fa-solid fa-circle-plus fa-beat absolute right-36 bottom-28 text-black text-6xl "></i>
+    <% end %>
   </div>
 
   <div id="categories" class="min-w-full">
