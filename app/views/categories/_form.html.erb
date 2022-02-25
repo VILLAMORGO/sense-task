@@ -1,3 +1,4 @@
+<div class="form">
 <%= form_with(model: category) do |form| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
@@ -10,18 +11,19 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "input", placeholder: "Category name" %>
   </div>
-
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "input", placeholder: "Details (Optional)"  %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="flex justify-evenly">
+    <div class="inline">
+      <%= link_to 'Back', categories_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"  %>
+    </div>
+    <div class="inline">
+      <%= form.submit  class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"  %>
+    </div>
   </div>
 <% end %>
+</div>
