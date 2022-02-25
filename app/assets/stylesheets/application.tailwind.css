@@ -38,4 +38,7 @@
 .label{
   @apply text-2xl;
 }
+.home-div{
+  @apply my-9 p-2 border border-black h-32 w-8/12 rounded-lg;
+}
 
