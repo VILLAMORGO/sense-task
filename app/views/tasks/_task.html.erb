@@ -16,6 +16,9 @@
 
   <% if action_name != "show" %>
     <%= link_to "Show this task", task, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline">
+      <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"  %>
+    </div>
     <%= link_to 'Edit this task', edit_task_path(task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
