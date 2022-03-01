@@ -6,9 +6,16 @@
 </p>
 
 <p>
+  <strong>Id:</strong>
+  <%= @category.id %>
+</p>
+<p>
   <strong>Body:</strong>
   <%= @category.body %>
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> 
+<%= link_to new_task_path do %>
+  <i class="fa-solid fa-circle-plus fa-beat text-black text-2xl"></i>
+<% end %>
 <%= link_to 'Back', categories_path %>

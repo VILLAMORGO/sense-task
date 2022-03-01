@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.all
+    @categories = current_account.categories
   end
 
   # GET /categories/1
@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = current_account.categories.build
   end
 
   # GET /categories/1/edit
@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   def create
-    @category = Category.new(category_params)
+    @category = current_account.categories.build(category_params)
 
     if @category.save
       redirect_to @category, notice: 'Category was successfully created.'
@@ -45,11 +45,13 @@ class CategoriesController < ApplicationController
     redirect_to categories_url, notice: 'Category was successfully destroyed.'
   end
 
+  def set_category
+    @category = current_account.categories.find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
-    end
+    
 
     # Only allow a list of trusted parameters through.
     def category_params
