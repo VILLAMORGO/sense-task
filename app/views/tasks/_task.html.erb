@@ -1,17 +1,32 @@
+
 <div id="<%= dom_id task %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
+
+  <p class="my-5 text-lg">
+    <strong class="block text-xl mb-1">Title:</strong>
     <%= task.title %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
+  <p class="my-5 text-lg">
+    <strong class="block text-xl mb-1">Details: (Optional)</strong>
     <%= task.body %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Category:</strong>
-    <%= task.category_id %>
+  <p class="my-5 text-lg">
+    <strong class="block text-xl mb-1">Category:</strong>
+    <%= task.category_title %>
+  </p>
+
+  <p class="my-5 text-lg">
+    <strong class="block text-xl mb-1">Due:</strong>
+    <%= task.date %>
+  </p>
+
+  <p class="my-5 text-lg">
+    <strong class="block text-xl mb-1">Status:</strong>
+    <%= task.status %><br />
+    <% Task::STATUSES.each do |status| %>
+      <%= link_to status, update_status_task_path(task, status: status), method: :patch, class: "border border-black h-16 w-16 p-1 rounded-lg" %>
+    <% end %>
   </p>
 
   <% if action_name != "show" %>

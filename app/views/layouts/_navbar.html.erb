@@ -1,18 +1,18 @@
-<header class="w-full h-16 absolute top-0 left-0 bg-black">
+<header class="w-full h-16 fixed top-0 left-0 bg-black">
     <div class="flex flex-row w-full">
         <%= image_tag "sensetasklogo.png", class: "sensetask_logo h-14 m-auto ml-28"%>
-        <nav class="flex justify-self-end items-center w-full h-16 justify-end">
+        <nav class="flex justify-self-end items-center w-full h-16 justify-end text-white">
             <ul class="flex flex-row content-center w-4/6 justify-evenly text-xl text-red">
-            <li class="a-links"> <%= link_to "Home", root_path, class: "text-black" %></li>
-            <li> <%= link_to "Categories", categories_path, class:"text-black" %></li>
+            <li class="a-links"> <%= link_to "Home", root_path, class: "text-white" %></li>
+            <li> <%= link_to "Categories", categories_path, class:"text-white" %></li>
             <li> <%= link_to "My Task", tasks_path %></li>
             <li class="w-3/6"> 
             
                 <% if account_signed_in? %>
                     <div class="flex justify-evenly">
-                        <p class="text-lg text-gray-400"><strong><%= current_account.email %></strong></p>
+                        <p class="text-lg text-white"><strong><%= current_account.email %></strong></p>
                         <%= link_to 'Edit profile', edit_account_registration_path %> |
-                        <%= link_to "Logout", destroy_account_session_path, method: :delete, class:"text-blue-600" %>
+                        <%= link_to "Logout", destroy_account_session_path, method: :delete %>
                     </div>
                 <% else %>
                     <div class="flex justify-evenly w-3/6 ml-64">

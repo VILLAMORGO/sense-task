@@ -16,6 +16,9 @@
       <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"  %>
     </div>
     <%= link_to 'Edit this category', edit_category_path(category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to new_task_path do %>
+      <i class="fa-solid fa-circle-plus fa-beat text-black text-2xl"></i>
+    <% end %>
     <hr class="mt-6">
   <% end %>
 </div>

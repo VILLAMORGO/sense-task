@@ -5,7 +5,9 @@ module.exports = {
     './app/views/**/*',
   ],
   theme: {
-    extend: {},
+    extend: {padding: {
+      '450px': '450px',
+    }},
   },
   plugins: [],
 }
