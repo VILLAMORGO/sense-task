@@ -1,25 +1,117 @@
-<h1 class="text-center text-3xl">HOME PAGE</h>
-
-<div class="text-left ml-10">
+<div class="text-left text-3xl flex flex-wrap justify-center">
   <div class="home-div" >
-    <label>Overdue</label>
-    <span></span>
+    <label class="text-center bg-red-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">Overdue</label>
+    <hr>
+    <table class="text-2xl table-fixed test">
+      <thead>
+        <tr>
+          <th class="pl-8">Task</th>
+          <th class="pl-2">Category</th>
+          <th class="pl-3">Due</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="scroll">
+        <% @tasks_overdue.each do | overdue | %>
+          <tr class="hover:bg-red-50 h-10 border">
+            <td class="pl-8"><%= link_to overdue.title, show_task_path(overdue.id) %></td>
+            <td><%= link_to overdue.category_title, show_task_path(overdue.id) %></td>
+            <td class="w-3/12"><%= distance_of_time_in_words_to_now(overdue.date) %> ago</td>
+            <td>
+              <%= link_to show_task_path(overdue.id) do %>
+                <i class="fa-solid fa-maximize"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  <div class="home-div">
-    <label>Today</label>
-    <span></span>
-  </div>
-  <div class="home-div">
-    <label>Tomorrow</label>
-    <span></span>
-  </div>
-  <div class="home-div">
-    <label>No Date</label>
-    <span></span>
-  </div>
-</div>
 
+  <div class="home-div" >
+    <label class="text-center bg-green-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">Today</label>
+    <hr>
+    <table class="text-2xl table-fixed test">
+      <thead>
+        <tr>
+          <th class="pl-8">Task</th>
+          <th class="pl-2">Category</th>
+          <th class="pl-3">Due</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="scroll">
+        <% @tasks_today.each do | today | %>
+          <tr class="hover:bg-green-50 h-10 border">
+            <td class="pl-8"><%= link_to  today.title, show_task_path( today.id) %></td>
+            <td class="w-3/12"><%= link_to  today.category_title, show_task_path( today.id) %></td>
+            <td class="w-6/12"><%= distance_of_time_in_words_to_now(Date.tomorrow) %> from now</td>
+            <td>
+              <%= link_to show_task_path( today.id) do %>
+                <i class="fa-solid fa-maximize ml-5"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to new_category_path do %>
-  <i class="fa-solid fa-circle-plus fa-beat absolute right-36 bottom-28 text-black text-6xl "></i>
-<% end %>
+  <div class="home-div" >
+    <label class="text-center bg-pink-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">Completed</label>
+    <hr>
+    <table class="text-2xl table-fixed test">
+      <thead>
+        <tr>
+          <th class="pl-8">Task</th>
+          <th class="pl-2">Category</th>
+          <th class="pl-3">Due</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="scroll">
+        <% @tasks_completed.each do | completed | %>
+          <tr class="hover:bg-pink-50 h-10 border">
+            <td class="pl-8"><%= link_to completed.title, show_task_path(completed.id) %></td>
+            <td><%= link_to completed.category_title, show_task_path(completed.id) %></td>
+            <td class="w-3/12"><%= distance_of_time_in_words_to_now(completed.date) %> ago</td>
+            <td>
+              <%= link_to show_task_path(completed.id) do %>
+                <i class="fa-solid fa-maximize ml-5"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="home-div" >
+    <label class="text-center bg-slate-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">No Date</label>
+    <hr>
+    <table class="text-2xl table-fixed test">
+      <thead>
+        <tr>
+          <th class="pl-8">Task</th>
+          <th class="pl-2">Category</th>
+          <th class="pl-3">Due</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="scroll">
+        <% @tasks_undated.each do | undated | %>
+          <tr class="hover:bg-slate-50 h-10 border">
+            <td class="pl-8"><%= link_to undated.title, show_task_path(undated.id) %></td>
+            <td><%= link_to undated.category_title, show_task_path(undated.id) %></td>
+            <td class="w-2/12">unset</td>
+            <td>
+              <%= link_to show_task_path(undated.id) do %>
+                <i class="fa-solid fa-maximize ml-5"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
