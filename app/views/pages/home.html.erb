@@ -1,13 +1,24 @@
 <div class="text-left text-3xl flex flex-wrap justify-center">
   <div class="home-div" >
-    <label class="text-center bg-red-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">Overdue</label>
+    <label class="text-center bg-red-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">
+      <i class="fa-solid fa-map-pin absolute left-10 top-0 text-amber-500"></i>
+      <span class="text-xl p-2 absolute left-44">
+        <%= @tasks_overdue.count %>
+        /
+        <%= @tasks_count %>
+      </span>
+      <strong class="text-red-900">
+        Overdue 
+      </strong>
+      <i class="fa-solid fa-calendar-xmark absolute right-10 top-2 text-red-700"></i>
+    </label>
     <hr>
-    <table class="text-2xl table-fixed test">
+    <table class="text-xl table-fixed test">
       <thead>
         <tr>
-          <th class="pl-8">Task</th>
-          <th class="pl-2">Category</th>
-          <th class="pl-3">Due</th>
+          <th class="pl-12">Task</th>
+          <th class="pl-4">Category</th>
+          <th class="pl-10">Due</th>
           <th></th>
         </tr>
       </thead>
@@ -19,7 +30,7 @@
             <td class="w-3/12"><%= distance_of_time_in_words_to_now(overdue.date) %> ago</td>
             <td>
               <%= link_to show_task_path(overdue.id) do %>
-                <i class="fa-solid fa-maximize"></i>
+                <i class="fa-solid fa-maximize text-red-800"></i>
               <% end %>
             </td>
           </tr>
@@ -29,12 +40,26 @@
   </div>
 
   <div class="home-div" >
-    <label class="text-center bg-green-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">Today</label>
+    <label class="flex justify-evenly bg-green-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">
+      <i class="fa-solid fa-map-pin absolute left-10 top-0 text-amber-500"></i>
+        <span class=" text-xl p-2">
+          <%= @tasks_today.count %>
+          /
+          <%= @tasks_count %>
+        </span>
+        <strong class="text-green-900">
+        Today 
+        </strong>
+        <span class=" text-xl p-2">
+          <%= Date.today.to_s(:long)%>
+        </span>
+      <i class="fa-solid fa-clipboard-list absolute right-10 top-2 text-green-700"></i>
+     </label>
     <hr>
-    <table class="text-2xl table-fixed test">
+    <table class="text-xl table-fixed test">
       <thead>
         <tr>
-          <th class="pl-8">Task</th>
+          <th class="pl-12">Task</th>
           <th class="pl-2">Category</th>
           <th class="pl-3">Due</th>
           <th></th>
@@ -45,10 +70,10 @@
           <tr class="hover:bg-green-50 h-10 border">
             <td class="pl-8"><%= link_to  today.title, show_task_path( today.id) %></td>
             <td class="w-3/12"><%= link_to  today.category_title, show_task_path( today.id) %></td>
-            <td class="w-6/12"><%= distance_of_time_in_words_to_now(Date.tomorrow) %> from now</td>
+            <td class="w-4/12"><%= distance_of_time_in_words_to_now(Date.tomorrow) %> from now</td>
             <td>
               <%= link_to show_task_path( today.id) do %>
-                <i class="fa-solid fa-maximize ml-5"></i>
+                <i class="fa-solid fa-maximize text-green-800"></i>
               <% end %>
             </td>
           </tr>
@@ -58,14 +83,25 @@
   </div>
 
   <div class="home-div" >
-    <label class="text-center bg-pink-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">Completed</label>
+    <label class="text-center bg-pink-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">
+      <i class="fa-solid fa-map-pin absolute left-10 top-0 text-amber-500"></i> 
+      <span class="text-xl p-2 absolute left-44">
+        <%= @tasks_completed.count %>
+        /
+        <%= @tasks_count %>
+      </span>
+      <strong class="text-pink-900">
+        Completed
+      </strong>
+      <i class="fa-solid fa-calendar-check absolute right-10 top-2 text-pink-700"></i>
+    </label>
     <hr>
-    <table class="text-2xl table-fixed test">
+    <table class="text-xl table-fixed test">
       <thead>
         <tr>
-          <th class="pl-8">Task</th>
-          <th class="pl-2">Category</th>
-          <th class="pl-3">Due</th>
+          <th class="pl-12">Task</th>
+          <th class="pl-4">Category</th>
+          <th class="pl-12">Due</th>
           <th></th>
         </tr>
       </thead>
@@ -77,7 +113,7 @@
             <td class="w-3/12"><%= distance_of_time_in_words_to_now(completed.date) %> ago</td>
             <td>
               <%= link_to show_task_path(completed.id) do %>
-                <i class="fa-solid fa-maximize ml-5"></i>
+                <i class="fa-solid fa-maximize text-pink-800"></i>
               <% end %>
             </td>
           </tr>
@@ -87,14 +123,25 @@
   </div>
 
   <div class="home-div" >
-    <label class="text-center bg-slate-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">No Date</label>
+    <label class="text-center bg-slate-100 h-12 pt-1 rounded-tr-lg rounded-tl-lg">
+      <i class="fa-solid fa-map-pin absolute left-10 top-0 text-amber-500"></i> 
+        <span class="text-xl p-2 absolute left-44">
+          <%= @tasks_overdue.count %>
+          /
+          <%= @tasks_count %>
+        </span>
+        <strong class="text-slate-900">
+          No Date
+        </strong>
+      <i class="fa-solid fa-calendar-plus absolute right-10 top-2 text-slate-700"></i>
+    </label>
     <hr>
-    <table class="text-2xl table-fixed test">
+    <table class="text-xl table-fixed test">
       <thead>
         <tr>
-          <th class="pl-8">Task</th>
-          <th class="pl-2">Category</th>
-          <th class="pl-3">Due</th>
+          <th class="pl-12">Task</th>
+          <th class="pl-4">Category</th>
+          <th class="pl-4">Due</th>
           <th></th>
         </tr>
       </thead>
@@ -103,10 +150,10 @@
           <tr class="hover:bg-slate-50 h-10 border">
             <td class="pl-8"><%= link_to undated.title, show_task_path(undated.id) %></td>
             <td><%= link_to undated.category_title, show_task_path(undated.id) %></td>
-            <td class="w-2/12">unset</td>
+            <td class="w-3/12">unset</td>
             <td>
               <%= link_to show_task_path(undated.id) do %>
-                <i class="fa-solid fa-maximize ml-5"></i>
+                <i class="fa-solid fa-maximize text-slate-800"></i>
               <% end %>
             </td>
           </tr>
