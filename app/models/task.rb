@@ -5,6 +5,6 @@ class Task < ApplicationRecord
   validates :title, uniqueness: {scope: :category_id}, :on => :create
   
   validates :status, presence: true
-  STATUSES = [:Not_started, :In_progress, :Complete]
+  STATUSES = ["Not started", "In progress", "Completed"]
   
 end
