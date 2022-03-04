@@ -13,6 +13,13 @@ module.exports = {
       },
       height: {
         '90': '22rem',
+        '120': '30rem',
+        '30px': '30px',
+      },
+      width: {
+        '90': '22rem',
+        '120': '30rem',
+
         '30px': '30px',
       },
       minHeight: {
@@ -22,11 +29,11 @@ module.exports = {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-4deg)' },
           '50%': { transform: 'rotate(4deg)' },
-        }
+        },
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
-      }
+      },
 
     },
   },

@@ -40,7 +40,7 @@
 }
 
 .home-div{
-  @apply m-5 border h-90 w-5/12 rounded-lg flex flex-col drop-shadow-lg bg-white;
+  @apply m-5 border h-90 w-5/12 rounded-lg flex flex-col drop-shadow-lg bg-white left-44;
 }
 
 tbody{

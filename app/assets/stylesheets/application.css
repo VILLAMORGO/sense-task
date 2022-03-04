@@ -26,12 +26,16 @@
     width: 100%; 
   }
   
-  tbody {
+  tbody, body{
     display: block; 
     max-height: 258px; 
     overflow-y: scroll; 
+    scroll:smooth;
   }
   tbody::-webkit-scrollbar {
+    display: none;
+  }
+  body::-webkit-scrollbar {
     display: none;
   }
   th, td {
