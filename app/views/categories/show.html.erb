@@ -1,21 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div  class="container mx-auto border-2 m-4 w-120 min-w-90 p-8 h-120 min-h-90 rounded-xl relative drop-shadow-sm text-xl">
+  
+  <p >
+    <strong class="block font-medium mb-1 text-2xl"><%= @category.title %></strong>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+  <p class="my-5">
+    <%= "Has a total of #{@category.tasks.count} tasks with #{@category.tasks.where(status: ["Not started"]).count} pending, #{@category.tasks.where(status: ["In progress"]).count} in progress and #{@category.tasks.where(status: ["Completed"]).count} successfully completed." %>
+  </p>
 
-<p>
-  <strong>Id:</strong>
-  <%= @category.id %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @category.body %>
-</p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Details: (Optional) </strong>
+    <%= @category.body %>
+  </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> 
-<%= link_to new_task_path do %>
-  <i class="fa-solid fa-circle-plus fa-beat text-black text-2xl"></i>
-<% end %>
-<%= link_to 'Back', categories_path %>
+  
+    <div class="absolute -bottom-14 left-0 w-full border rounded-2xl flex justify-evenly">
+      <%= link_to  categories_path, class: "rounded-lg inline-block font-medium p-2 px-2 text-2xl text-slate-500 hover:bg-slate-50 " do %>
+        <i class="fa-solid fa-caret-left transition transform hover:animate-[ping_.5s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none"></i>
+      <% end %>
+      <%= link_to edit_category_path(@category), class: "rounded-lg inline-block font-medium  p-2 px-2 text-2xl text-green-500 hover:bg-green-50 transition transform hover:animate-[pulse_.3s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none" do%>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+    </div>
+</div>
+
+
+
