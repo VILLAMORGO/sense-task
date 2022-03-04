@@ -5,20 +5,33 @@
     <% end %>
 
     <%= render @task %>
-    <div class="inline-block ml-2">
-      <%= link_to 'Edit this task', edit_task_path(@task), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="flex flex-row justify-evenly">
+    <div>
+      <%= link_to edit_task_path(@task), class: "rounded-lg inline-block font-medium p-2 px-2 text-2xl text-green-500 hover:bg-green-50 transition transform hover:animate-[pulse_.3s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none" do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end%>
     </div>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this task', task_path(@task), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <div>
+      <%= button_to task_path(@task), method: :delete, class: " rounded-lg  font-medium mx-8 p-2 px-2 text-2xl text-red-500 hover:bg-red-50 transition transform hover:animate-[wiggle_.3s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none" do %>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
     </div>
+    <div>
     <% if request.path.start_with?('/show_task') %>
-      <div class="inline-block ml-2">
-        <%= link_to 'Back to home', root_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div  >
+        <%= link_to root_path, class: "ml-2 rounded-lg inline-block font-medium font-medium mx-8 p-2 px-2 text-2xl text-sky-500 hover:bg-sky-50 " do %>
+          <i class="fa-solid fa-house transition transform hover:animate-[ping_.5s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none">
+          </i>
+        <% end %>
       </div>
     <% else %>
-      <div class="inline-block ml-2">
-        <%= link_to 'Back to tasks', tasks_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div  class: "ml-2 rounded-lg bg-gray-100  font-medium" >
+        <%= link_to tasks_path class: "rounded-lg bg-gray-100  transition transform hover:animate-[ping_.5s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none text-xl" do %>
+          <i class="fa-solid fa-caret-left"></i>
+        <% end %>
       </div>
     <% end %>
+    </div>
+    </div>
   </div>
 </div>

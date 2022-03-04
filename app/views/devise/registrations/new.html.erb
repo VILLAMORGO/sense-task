@@ -1,4 +1,6 @@
-<%= render "devise/shared/error_messages", resource: resource %>
+<% if resource.errors.any? %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<% end %>
 
 <div class="form">
 
@@ -22,10 +24,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "input", placeholder: "Confirm Password (6 characters minimum)" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="actions mt-8">
+    <%= f.submit "Sign up", class: "border border-black rounded-full text-2xl cursor-pointer w-3/12 bg-amber-400" %>
   </div>
-  <%= render "devise/shared/links" %>
 <% end %>
 
 

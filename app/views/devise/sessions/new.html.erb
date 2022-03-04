@@ -14,7 +14,7 @@
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="flex flex-row justify-items-start">
+    <div class="flex flex-row justify-items-start mt-4">
       <div>
         <%= f.check_box :remember_me %>
       </div>
@@ -25,10 +25,8 @@
   <% end %>
 
   </br>
-    <i class="fa-solid fa-arrow-right fa-beat btn"> <%= f.submit "Log in" %></i>
+    <%= f.submit "Log in", class: "border border-black rounded-full text-2xl cursor-pointer w-3/12 bg-amber-400" %>
   </br>
-
-  <%= render "devise/shared/links" %>
 
 <% end %>
 
