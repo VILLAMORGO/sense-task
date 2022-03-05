@@ -21,7 +21,7 @@
 }
 
 .notices{
-  @apply fixed top-20 left-1/2 -translate-x-1/2 text-center border border-black rounded-lg w-3/12 h-max p-4 text-xl;
+  @apply fixed top-20 left-1/2 -translate-x-1/2 text-center border border-black rounded-lg w-3/12 h-max p-2 text-xl;
 }
 
 .edit-form{
@@ -46,4 +46,3 @@
 tbody{
   @apply h-auto min-h-1/3;
 }
-

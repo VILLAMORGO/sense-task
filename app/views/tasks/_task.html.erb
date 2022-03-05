@@ -1,19 +1,16 @@
+<div id="<%= dom_id task %>" class="container mx-auto border border rounded-2xl w-140 min-h-120 h-120 m-8 relative bg-white drop-shadow-lg overflow-hidden">
+  <div>
+  <div class="ribbon bg-amber-500 text-sm whitespace-no-wrap px-16 py-3 text-xl"><%= task.category_title %></div>
+  	
+  <div class=" <%if task.status == "Not started" %>  bg-slate-100 text-slate-900<%elsif task.status == "In progress" %> bg-orange-100 text-orange-900 <%else %> bg-green-100 text-green-900<% end %>   text-lg border rounded p-4 pl-8" >
+    <strong class="block text-xl mb-1"><%= task.title %></strong>
+  </div>
 
-<div id="<%= dom_id task %>">
+  <div class="p-8 border">
 
-  <p class="my-5 text-lg">
-    <strong class="block text-xl mb-1">Title:</strong>
-    <%= task.title %>
-  </p>
-
-  <p class="my-5 text-lg">
+  <p class=" text-lg">
     <strong class="block text-xl mb-1">Details: (Optional)</strong>
     <%= task.body %>
-  </p>
-
-  <p class="my-5 text-lg">
-    <strong class="block text-xl mb-1">Category:</strong>
-    <%= task.category_title %>
   </p>
 
   <p class="my-5 text-lg">
@@ -23,18 +20,30 @@
 
   <p class="my-5 text-lg">
     <strong class="block text-xl mb-1">Status:</strong>
-    <%= task.status %><br />
+    <%= task.status %><br/><br/>
+    <div class="text-center">
     <% Task::STATUSES.each do |status| %>
-      <%= link_to status, update_status_task_path(task, status: status), method: :patch, class: "border border-black h-16 w-16 p-1 rounded-lg" %>
+      <%= link_to status, update_status_task_path(task, status: status), method: :patch, class: "border border-black h-16 w-16 p-1 rounded-lg mx-8" %>
     <% end %>
+    </div>
   </p>
 
+  </div>
+
   <% if action_name != "show" %>
-    <%= link_to "Show this task", task, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="absolute bottom-0 left-0 w-full border rounded-2xl flex justify-center rounded-tl-sm rounded-tr-sm border-gray-500">
+    <%= link_to  task, class: "rounded-lg  inline-block font-medium mx-16 p-2 px-2 text-2xl text-sky-500 hover:bg-sky-50 transition transform hover:animate-[wiggle_.3s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none" do %>
+      <i class="fa-solid fa-maximize"></i>
+    <% end %>
     <div class="inline">
-      <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"  %>
+      <%= link_to  task, class: "ml-2 rounded-lg inline-block font-medium mx-16 p-2 px-2 text-2xl text-red-500 hover:bg-red-50 transition transform hover:animate-[wiggle_.3s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none" do %>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
     </div>
-    <%= link_to 'Edit this task', edit_task_path(task), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <%= link_to edit_task_path(task), class: "rounded-lg ml-2 inline-block font-medium mx-16 p-2 px-2 text-2xl text-green-500 hover:bg-green-50 transition transform hover:animate-[pulse_.3s_ease-in-out_infinite] motion-reduce:transition-none motion-reduce:hover:transform-none" do %>
+     <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+       </div>
+       </div>
   <% end %>
 </div>

@@ -1,7 +1,6 @@
 <div class="w-full">
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl pl-16">Tasks</h1>
     <%= link_to new_task_path do %>
       <i class="fa-solid fa-circle-plus fa-beat fixed right-36 bottom-28 text-black text-6xl z-10"></i>
     <% end %>
@@ -11,7 +10,7 @@
     <%= render @tasks %>
   </div>
 
-  <div class="fixed right-0 top-16 text-2xl text-blue-900 text-center flex flex-col border h-screen w-1/5 bg-neutral-100">
+  <div class="fixed right-0 top-16 text-2xl text-blue-900 text-center flex flex-col border h-screen w-1/5 bg-amber-200">
     <%= link_to "All Tasks", tasks_path, class: "p-2" %>
     <% @categories.each do |category| %>
       <%= link_to category.title, tasks_path(:category_id => category.id), class: "p-2"%>

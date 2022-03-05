@@ -35,6 +35,10 @@
   tbody::-webkit-scrollbar {
     display: none;
   }
+
+  #text_area::-webkit-scrollbar {
+    display: none;
+  }
   body::-webkit-scrollbar {
     display: none;
   }
@@ -48,4 +52,17 @@
     display: table;
     width: 100%;
   }
-  
+  .ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 265px;
+    height: 50px;
+    text-align: center;
+    margin-right: -40px;
+    margin-top: 30px;
+    font-size: 20px;
+    -ms-transform: rotate(35deg); 
+    -webkit-transform: rotate(35deg); 
+    transform: rotate(35deg); 
+  }

@@ -11,14 +11,20 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      padding: {
+        '120': '27rem',
+        '130': '32rem',
+      },
       height: {
         '90': '22rem',
         '120': '30rem',
+        '140': '40rem',
         '30px': '30px',
       },
       width: {
         '90': '22rem',
         '120': '30rem',
+        '140': '40rem',
 
         '30px': '30px',
       },

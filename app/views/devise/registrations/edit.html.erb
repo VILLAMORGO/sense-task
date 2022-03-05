@@ -1,12 +1,11 @@
-<div class="edit-form">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="edit-form text-center">
+<h2 class="text-center text-2xl">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email", class: "input mt-8" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -23,8 +22,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password", class: "input" %>
   </div>
 
   <div class="field">
@@ -32,14 +30,13 @@
     <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="actions ">
+    <%= f.submit "Update", class: "mt-8 border border-black rounded-full text-2xl cursor-pointer w-3/12 bg-amber-400" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p class="mt-6">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back,  class: "mt-4 border border-black rounded-full text-2xl cursor-pointer w-3/12 bg-amber-400 ml-40" %>
 </div>
